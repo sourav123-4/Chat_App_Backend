@@ -9,11 +9,8 @@ const chatRoute = require("./routes/chatRoutes");
 dotenv.config();
 const app = express();
 connectDB();
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json()); // to accept json data
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/user", userRouter);
 app.use("/api/message", messageRouter);
